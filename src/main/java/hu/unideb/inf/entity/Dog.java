@@ -11,7 +11,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "DOG")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,9 +32,8 @@ public class Dog {
 
     private Gender gender;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SHELTER_ID")
+    @JoinColumn(name = "shelter_id")
     private Shelter shelterId;
 
     @NotNull

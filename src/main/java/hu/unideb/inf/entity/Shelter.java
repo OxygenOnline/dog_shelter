@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "SHELTER")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,4 +32,7 @@ public class Shelter {
 
     @OneToMany(mappedBy = "shelterId")
     private List<Dog> dogList;
+
+    @NotBlank
+    private Boolean isActive = true;
 }
