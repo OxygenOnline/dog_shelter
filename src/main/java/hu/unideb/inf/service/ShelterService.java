@@ -9,5 +9,6 @@ public interface ShelterService {
     List<ShelterDto> findAll();
     ShelterDto findById(Integer id);
     ShelterDto saveShelter(ShelterDto shelterDto);
+    void deleteShelter(Integer id);
     boolean isValidId(int id);
 }

@@ -47,6 +47,12 @@ public class ShelterServiceImpl implements ShelterService {
     }
 
     @Override
+    public void deleteShelter(Integer id) {
+
+        shelterRepository.deleteById(id);
+    }
+
+    @Override
     public boolean isValidId(int id) {
 
         return shelterRepository.existsById(id);
