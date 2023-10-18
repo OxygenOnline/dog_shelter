@@ -5,16 +5,14 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@SQLDelete(sql = "UPDATE DOG SET is_available_for_adoption = false WHERE id =?")
+@Where(clause = "is_available_for_adoption = true")
 public class Dog {
 
     @Id
@@ -30,11 +28,12 @@ public class Dog {
     @Max(value = 2100)
     private Integer birthYear;
 
+    @Enumerated(EnumType.ORDINAL)
     private Gender gender;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shelter_id")
-    private Shelter shelterId;
+    private Shelter shelter;
 
     @NotNull
     private Boolean isAvailableForAdoption = true;

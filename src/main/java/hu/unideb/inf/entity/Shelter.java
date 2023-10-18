@@ -3,18 +3,16 @@ package hu.unideb.inf.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@SQLDelete(sql = "UPDATE SHELTER SET is_active = false WHERE id =?")
+@Where(clause = "is_active = true")
 public class Shelter {
 
     @Id
@@ -30,7 +28,7 @@ public class Shelter {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "shelterId")
+    @OneToMany(mappedBy = "shelter")
     private List<Dog> dogList;
 
     @NotBlank
