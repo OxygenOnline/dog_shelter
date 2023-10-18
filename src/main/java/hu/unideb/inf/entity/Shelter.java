@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
-@SQLDelete(sql = "UPDATE SHELTER SET is_active = false WHERE id =?")
+@SQLDelete(sql = "UPDATE SHELTER SET is_active = false WHERE shelter_id =?")
 @Where(clause = "is_active = true")
 public class Shelter {
 

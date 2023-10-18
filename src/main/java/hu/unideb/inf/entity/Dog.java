@@ -11,7 +11,7 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Data
-@SQLDelete(sql = "UPDATE DOG SET is_available_for_adoption = false WHERE id =?")
+@SQLDelete(sql = "UPDATE dog SET is_available_for_adoption = false WHERE dog_id =?")
 @Where(clause = "is_available_for_adoption = true")
 public class Dog {
 
