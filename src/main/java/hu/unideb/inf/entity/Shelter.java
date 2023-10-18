@@ -3,6 +3,8 @@ package hu.unideb.inf.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -31,6 +33,6 @@ public class Shelter {
     @OneToMany(mappedBy = "shelter")
     private List<Dog> dogList;
 
-    @NotBlank
+    @NotNull
     private Boolean isActive = true;
 }

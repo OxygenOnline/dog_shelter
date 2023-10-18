@@ -47,10 +47,7 @@ public class DogController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        if (dog.getDogId() == null) {
-            dog.setDogId(id);
-        }
-
+        dog.setDogId(id);
         DogDto dogDto = dogService.saveDog(dog);
         return new ResponseEntity<>(dogDto, HttpStatus.CREATED);
     }
