@@ -1,7 +1,9 @@
 package hu.unideb.inf.service.impl;
 
 import hu.unideb.inf.dto.ShelterDto;
+import hu.unideb.inf.entity.Dog;
 import hu.unideb.inf.entity.Shelter;
+import hu.unideb.inf.repository.DogRepository;
 import hu.unideb.inf.repository.ShelterRepository;
 import hu.unideb.inf.service.ShelterService;
 import hu.unideb.inf.service.mapper.ShelterMapper;
@@ -17,6 +19,9 @@ public class ShelterServiceImpl implements ShelterService {
 
     @Autowired
     ShelterRepository shelterRepository;
+
+    @Autowired
+    DogRepository dogRepository;
 
     @Autowired
     ShelterMapper shelterMapper;
@@ -49,6 +54,14 @@ public class ShelterServiceImpl implements ShelterService {
     @Override
     public void deleteShelter(Integer id) {
 
+        if (!isValidId(id)) {
+            throw new EntityNotFoundException("No Shelter Entity Found By ID: " + id);
+        }
+        List<Dog> dogs = dogRepository.findAllByShelterShelterIdAndIsAvailableForAdoptionTrue(id);
+        for (Dog dog: dogs) {
+            dog.setShelter(null);
+        }
+        dogRepository.saveAll(dogs);
         shelterRepository.deleteById(id);
     }
 
