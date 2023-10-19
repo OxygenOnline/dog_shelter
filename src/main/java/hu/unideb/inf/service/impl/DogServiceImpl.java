@@ -49,6 +49,9 @@ public class DogServiceImpl implements DogService {
     @Override
     public void deleteDog(Integer id) {
 
+        if (!isValidId(id)) {
+            throw new EntityNotFoundException("No Dog Entity Found By ID: " + id);
+        }
         dogRepository.deleteById(id);
     }
 

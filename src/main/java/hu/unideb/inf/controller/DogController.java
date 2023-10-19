@@ -36,6 +36,10 @@ public class DogController {
     @PostMapping("")
     public ResponseEntity<DogDto> createDog(@RequestBody DogDto dog) {
 
+        if (dog.getDogId() != null) {
+            dog.setDogId(null);
+        }
+
         DogDto dogDto = dogService.saveDog(dog);
         return new ResponseEntity<>(dogDto, HttpStatus.CREATED);
     }
@@ -49,7 +53,7 @@ public class DogController {
 
         dog.setDogId(id);
         DogDto dogDto = dogService.saveDog(dog);
-        return new ResponseEntity<>(dogDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(dogDto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
