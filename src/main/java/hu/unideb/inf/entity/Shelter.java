@@ -10,7 +10,7 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Data
-@SQLDelete(sql = "UPDATE SHELTER SET is_active = false WHERE shelter_id =?")
+@SQLDelete(sql = "UPDATE shelter SET is_active = false WHERE shelter_id =?")
 @Where(clause = "is_active = true")
 public class Shelter {
 
@@ -25,6 +25,7 @@ public class Shelter {
     private String location;
 
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotNull

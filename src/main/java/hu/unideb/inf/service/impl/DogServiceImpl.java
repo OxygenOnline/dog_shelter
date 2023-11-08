@@ -6,19 +6,19 @@ import hu.unideb.inf.repository.DogRepository;
 import hu.unideb.inf.service.DogService;
 import hu.unideb.inf.service.mapper.DogMapper;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
+@AllArgsConstructor
 public class DogServiceImpl implements DogService {
 
-    @Autowired
     DogRepository dogRepository;
 
-    @Autowired
     DogMapper dogMapper;
 
     @Override

@@ -2,18 +2,19 @@ package hu.unideb.inf.controller;
 
 import hu.unideb.inf.dto.DogDto;
 import hu.unideb.inf.service.DogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/dogs")
+@AllArgsConstructor
 public class DogController {
 
-    @Autowired
     DogService dogService;
 
     @GetMapping("")

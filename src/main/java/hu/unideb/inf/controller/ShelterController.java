@@ -2,18 +2,19 @@ package hu.unideb.inf.controller;
 
 import hu.unideb.inf.dto.ShelterDto;
 import hu.unideb.inf.service.ShelterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/shelters")
+@AllArgsConstructor
 public class ShelterController {
 
-    @Autowired
     ShelterService shelterService;
 
     @GetMapping("")

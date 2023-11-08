@@ -8,22 +8,21 @@ import hu.unideb.inf.repository.ShelterRepository;
 import hu.unideb.inf.service.ShelterService;
 import hu.unideb.inf.service.mapper.ShelterMapper;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
+@AllArgsConstructor
 public class ShelterServiceImpl implements ShelterService {
 
-    @Autowired
     ShelterRepository shelterRepository;
 
-    @Autowired
     DogRepository dogRepository;
 
-    @Autowired
     ShelterMapper shelterMapper;
 
     @Override
