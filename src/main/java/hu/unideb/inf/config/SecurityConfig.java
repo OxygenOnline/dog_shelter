@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling((ex) -> ex
-                        .accessDeniedPage("/login"))
+                        .accessDeniedPage("users/signin"))
                 .build();
     }
 
