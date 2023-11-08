@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ShelterController {
 
-    ShelterService shelterService;
+    private final ShelterService shelterService;
 
     @GetMapping("")
     public ResponseEntity<List<ShelterDto>> getAllShelters() {

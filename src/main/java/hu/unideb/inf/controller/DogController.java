@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DogController {
 
-    DogService dogService;
+    private final DogService dogService;
 
     @GetMapping("")
     public ResponseEntity<List<DogDto>> getAllDogs() {

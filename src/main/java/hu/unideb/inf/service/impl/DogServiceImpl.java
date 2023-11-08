@@ -17,9 +17,9 @@ import java.util.Optional;
 @AllArgsConstructor
 public class DogServiceImpl implements DogService {
 
-    DogRepository dogRepository;
+    private final DogRepository dogRepository;
 
-    DogMapper dogMapper;
+    private final DogMapper dogMapper;
 
     @Override
     public List<DogDto> findAll() {

@@ -19,11 +19,11 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ShelterServiceImpl implements ShelterService {
 
-    ShelterRepository shelterRepository;
+    private final ShelterRepository shelterRepository;
 
-    DogRepository dogRepository;
+    private final DogRepository dogRepository;
 
-    ShelterMapper shelterMapper;
+    private final ShelterMapper shelterMapper;
 
     @Override
     public List<ShelterDto> findAll() {
