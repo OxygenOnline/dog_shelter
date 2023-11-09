@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 108, 52, 40;
+  --background-start-rgb: 206, 230, 243;
+  --background-end-rgb: 223, 168, 120;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 206, 230, 243;
+    --background-start-rgb: 186, 112, 79;
+    --background-end-rgb: 108, 52, 40;
   }
 }
 
@@ -24,4 +24,31 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbarContent {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  place-items: center;
 }
