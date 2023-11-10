@@ -11,4 +11,5 @@ public class DogDto {
     private Integer birthYear;
     private String gender;
     private Integer shelterId;
+    private String shelterName;
 }
