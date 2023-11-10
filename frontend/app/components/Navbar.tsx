@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Navbar: React.FC = () => {
     return (
         <nav>
-            <div className='flex justify-end align-end'>
+            <div className='flex justify-end align-end text-lg'>
                 <ul className='flex'>
                     <li className='p-4'>
                         <Link href='/login'>Login</Link>
