@@ -5,10 +5,10 @@ const Navbar: React.FC = () => {
         <nav>
             <div className='flex justify-end align-end text-lg'>
                 <ul className='flex'>
-                    <li className='p-4'>
+                    <li className='p-4 hover:text-slate-700'>
                         <Link href='/login'>Login</Link>
                     </li>
-                    <li className='p-4'>
+                    <li className='p-4 hover:text-slate-700'>
                         <Link href='/register'>Register</Link>
                     </li>
                 </ul>

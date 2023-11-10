@@ -12,7 +12,6 @@ const RegisterPage = () => {
       <div>
         <p className="pt-12">Already a user? Login <Link href='/login' className='hover:font-semibold'>here</Link></p>
       </div>
-      
     </main>
   );
 };
