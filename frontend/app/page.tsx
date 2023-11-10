@@ -3,11 +3,11 @@ import Navbar from './components/Navbar';
 
 export default function Home() {
   return (
-    <main className="mainContainer min-h-screen p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       
       <Navbar />
 
-      <div className="imageContainer pt-24">
+      <div className="relative flex place-items-center p-24">
         <Image
           className="relative hover:dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
           src="/dog_with_owner.png"
