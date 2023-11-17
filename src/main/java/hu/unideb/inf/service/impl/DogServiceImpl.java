@@ -42,7 +42,10 @@ public class DogServiceImpl implements DogService {
     public DogDto saveDog(DogDto dogDto) {
 
         Dog dog = dogMapper.dtoToEntity(dogDto);
-        dog = dogRepository.save(dog);
+        if (dogDto.getShelterId() == null) {
+            dog.setShelter(null);
+        }
+        dog = dogRepository.saveAndFlush(dog);
         return dogMapper.entityToDto(dog);
     }
 

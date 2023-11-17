@@ -46,7 +46,7 @@ public class ShelterServiceImpl implements ShelterService {
     public ShelterDto saveShelter(ShelterDto shelterDto) {
 
         Shelter shelter = shelterMapper.dtoToEntity(shelterDto);
-        shelter = shelterRepository.save(shelter);
+        shelter = shelterRepository.saveAndFlush(shelter);
         return shelterMapper.entityToDto(shelter);
     }
 
