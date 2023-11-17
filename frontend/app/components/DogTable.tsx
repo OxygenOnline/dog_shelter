@@ -1,8 +1,6 @@
 import { Dog } from "../types/dogs"
 import { DogRow } from "./Dog"
 
-const api = process.env.NEXT_PUBLIC_API_ROOT;
-
 
 type DogDataProps = {
   dogs: Dog[];
@@ -18,8 +16,7 @@ const DogTable: React.FC<DogDataProps> = ({ dogs }) => {
           <th>Breed</th>
           <th>Birth Year</th>
           <th>Gender</th>
-          <th>Shelter Id</th>
-          <th>Shelter Name</th>
+          <th>Shelter</th>
         </tr>
       </thead>
       <tbody>
