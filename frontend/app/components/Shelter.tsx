@@ -14,6 +14,7 @@ interface ShelterProps {
 }
 
 export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
+    
     const router = useRouter();
     const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
     const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false);
@@ -100,7 +101,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
                                 </label>
                                 <input
                                     id='email'
-                                    value={email}
+                                    value={email ?? ""}
                                     onChange={(e) => setEmail(e.target.value)}
                                     type='email'
                                     placeholder='Enter Email'
