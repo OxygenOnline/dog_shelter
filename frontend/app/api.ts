@@ -1,5 +1,7 @@
 import { Shelter } from "./types/shelters"
 import { Dog } from "./types/dogs"
+import { NewUser } from "./types/newUsers";
+import { User } from "./types/users";
 
 
 const api = process.env.NEXT_PUBLIC_API_ROOT;
@@ -82,4 +84,26 @@ export const deleteDog = async (id: number) => {
     await fetch(`${api}/dogs/${id}`, {
         method: 'DELETE'
     });
+};
+
+export const register = async (user: NewUser) => {
+    const res = await fetch(`${api}/users/signup`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+};
+
+export const login = async (user: User) => {
+    const res = await fetch(`${api}/users/signin`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    const token = await res.json();
+    return token;
 };
