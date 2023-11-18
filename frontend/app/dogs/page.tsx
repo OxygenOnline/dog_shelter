@@ -2,6 +2,7 @@
 
 import DogTable from '../components/DogTable';
 import ShelterButton from '../components/ShelterButton';
+import AddDog from '../components/AddDog';
 import { getAllDogs } from "../api"
 import Navbar from '../components/Navbar';
 import { useEffect, useState } from 'react'
@@ -27,7 +28,7 @@ const DogPage = () => {
 
   useEffect(() => {
     fetchDogs(api + "/dogs");
-  }, [dogs])
+  }, [])
 
   return (
     <main className="flex min-h-screen flex-col items-center text-center justify-between p-24">
@@ -36,7 +37,10 @@ const DogPage = () => {
 
       <h1 className="mb-3 text-6xl font-bold">Dogs</h1>
 
-      <DogTable dogs={dogs} />
+      <div>
+        <AddDog></AddDog>
+        <DogTable dogs={dogs} />
+      </div>
       <ShelterButton />
 
     </main>

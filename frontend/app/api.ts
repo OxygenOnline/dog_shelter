@@ -11,12 +11,16 @@ export const getAllShelters = async () => {
 };
 
 export const addShelter = async (shelter: Shelter) => {
+    const createdShelter = {
+        ...shelter,
+        shelterId: undefined
+    }
     const res = await fetch(`${api}/shelters`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(shelter)
+        body: JSON.stringify(createdShelter)
     })
     const newShelter = await res.json();
     return newShelter;
@@ -35,7 +39,7 @@ export const editShelter = async (shelter: Shelter) => {
 };
 
 export const deleteShelter = async (id: number) => {
-    await fetch(api + "/shelters/" + id, {
+    await fetch(`${api}/shelters/${id}`, {
         method: 'DELETE'
     });
 };
@@ -47,12 +51,16 @@ export const getAllDogs = async () => {
 };
 
 export const addDog = async (dog: Dog) => {
+    const createdDog = {
+        ...dog,
+        dogId: undefined
+    }
     const res = await fetch(`${api}/dogs`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(dog)
+        body: JSON.stringify(createdDog)
     })
     const newDog = await res.json();
     return newDog;
@@ -71,7 +79,7 @@ export const editDog = async (dog: Dog) => {
 };
 
 export const deleteDog = async (id: number) => {
-    await fetch(api + "/dogs/" + id, {
+    await fetch(`${api}/dogs/${id}`, {
         method: 'DELETE'
     });
 };

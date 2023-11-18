@@ -21,7 +21,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
     const [shelterId] = useState(shelter.shelterId);
     const [shelterName, setShelterName] = useState(shelter.shelterName);
     const [location, setLocation] = useState(shelter.location);
-    const [email, setEmail] = useState(shelter.email);
+    const [email, setEmail] = useState<string | null | undefined>(shelter.email);
 
     const handleDeleteShelter = async (id: number) => {
         await deleteShelter(id);
@@ -105,7 +105,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
                                 <input
                                     id='email'
                                     value={email ?? ""}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    onChange={(e) => setEmail(e.target.value === '' ? null : e.target.value)}
                                     type='email'
                                     placeholder='Enter Email'
                                     className='input input-bordered w-full'

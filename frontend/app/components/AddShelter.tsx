@@ -11,14 +11,14 @@ const AddShelter = () => {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const [shelterName, setShelterName] = useState("");
     const [location, setLocation] = useState("");
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState<string | null | undefined>(null);
 
     const handleSubmitNewShelter: FormEventHandler<HTMLFormElement> = async () => {
         await addShelter({
             shelterId: 1,
             shelterName,
             location,
-            email: email ?? null
+            email
         });
         setModalOpen(false);
         router.refresh();
@@ -28,7 +28,7 @@ const AddShelter = () => {
         <div className="pb-6">
             <button
                 onClick={() => setModalOpen(true)}
-                className='btn rounded-lg text-gray-300 w-full bg-opacity-30 border-orange-300 hover:bg-opacity-40'
+                className='btn rounded-lg text-gray-300 w-full bg-opacity-0 border-transparent shadow-none hover:border-orange-300 hover:bg-opacity-0'
             >
                 Add New Shelter <AiOutlinePlus className='ml-2' size={18} />
             </button>
@@ -72,7 +72,7 @@ const AddShelter = () => {
                             <input
                                 id='email'
                                 value={email ?? ""}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value === '' ? null : e.target.value)}
                                 type='email'
                                 placeholder='Enter Email'
                                 className='input input-bordered w-full'

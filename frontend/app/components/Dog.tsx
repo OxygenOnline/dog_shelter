@@ -91,6 +91,7 @@ export const DogRow: React.FC<DogDataProps> = ({ dog }) => {
                                     value={dogId}
                                     readOnly
                                     className='input input-bordered w-full bg-gray-700 cursor-not-allowed'
+                                    required
                                 />
                             </div>
                             <div className='mb-4'>
@@ -104,6 +105,7 @@ export const DogRow: React.FC<DogDataProps> = ({ dog }) => {
                                     type='text'
                                     placeholder='Enter Dog Name'
                                     className='input input-bordered w-full'
+                                    required
                                 />
                             </div>
                             <div className='mb-4'>
@@ -113,7 +115,7 @@ export const DogRow: React.FC<DogDataProps> = ({ dog }) => {
                                 <input
                                     id='breed'
                                     value={breed ?? ""}
-                                    onChange={(e) => setBreed(e.target.value)}
+                                    onChange={(e) => setBreed(e.target.value === '' ? null : e.target.value)}
                                     type='text'
                                     placeholder='Enter Breed'
                                     className='input input-bordered w-full'
