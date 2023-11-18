@@ -21,7 +21,7 @@ export default function LoginForm() {
 
     async function handleSubmit() {
         try {
-            const token = await login(state);
+            const { token } = await login(state);
             Cookies.set('token', token);
             router.push("/");
         }

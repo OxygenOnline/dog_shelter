@@ -2,9 +2,11 @@ import { Shelter } from "./types/shelters"
 import { Dog } from "./types/dogs"
 import { NewUser } from "./types/newUsers";
 import { User } from "./types/users";
+import Cookies from "js-cookie"
 
 
 const api = process.env.NEXT_PUBLIC_API_ROOT;
+const storedToken = Cookies.get('token');
 
 export const getAllShelters = async () => {
     const res = await fetch(`${api}/shelters`);
@@ -21,6 +23,7 @@ export const addShelter = async (shelter: Shelter) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
         },
         body: JSON.stringify(createdShelter)
     })
@@ -32,7 +35,8 @@ export const editShelter = async (shelter: Shelter) => {
     const res = await fetch(`${api}/shelters/${shelter.shelterId}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
         },
         body: JSON.stringify(shelter)
     })
@@ -42,7 +46,10 @@ export const editShelter = async (shelter: Shelter) => {
 
 export const deleteShelter = async (id: number) => {
     await fetch(`${api}/shelters/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${storedToken}`
+        }
     });
 };
 
@@ -60,7 +67,8 @@ export const addDog = async (dog: Dog) => {
     const res = await fetch(`${api}/dogs`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
         },
         body: JSON.stringify(createdDog)
     })
@@ -72,7 +80,8 @@ export const editDog = async (dog: Dog) => {
     const res = await fetch(`${api}/dogs/${dog.dogId}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${storedToken}`
         },
         body: JSON.stringify(dog)
     })
@@ -82,7 +91,10 @@ export const editDog = async (dog: Dog) => {
 
 export const deleteDog = async (id: number) => {
     await fetch(`${api}/dogs/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${storedToken}`
+        }
     });
 };
 
