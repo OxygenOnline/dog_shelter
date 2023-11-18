@@ -2,6 +2,7 @@
 
 import ShelterTable from '../components/ShelterTable';
 import DogButton from '../components/DogButton';
+import AddShelter from "../components/AddShelter"
 import { getAllShelters } from "../api"
 import Navbar from '../components/Navbar';
 import { useEffect, useState } from 'react'
@@ -25,7 +26,7 @@ const ShelterPage = () => {
 
   useEffect(() => {
     fetchShelters();
-  }, [shelters]);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center text-center justify-between p-24">
@@ -34,7 +35,10 @@ const ShelterPage = () => {
 
       <h1 className="mb-3 text-6xl font-bold">Shelters</h1>
 
-      <ShelterTable shelters={shelters}/>
+      <div>
+        <AddShelter />
+        <ShelterTable shelters={shelters} />
+      </div>
       <DogButton />
 
     </main>

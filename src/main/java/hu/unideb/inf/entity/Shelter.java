@@ -25,7 +25,6 @@ public class Shelter {
     private String location;
 
     @Email
-    @Column(unique = true)
     private String email;
 
     @NotNull

@@ -67,6 +67,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
                                     value={shelter.shelterId}
                                     readOnly
                                     className='input input-bordered w-full bg-gray-700 cursor-not-allowed'
+                                    required
                                 />
                             </div>
                             <div className='mb-4'>
@@ -80,6 +81,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
                                     type='text'
                                     placeholder='Enter Shelter Name'
                                     className='input input-bordered w-full'
+                                    required
                                 />
                             </div>
                             <div className='mb-4'>
@@ -93,6 +95,7 @@ export const ShelterRow: React.FC<ShelterProps> = ({ shelter }) => {
                                     type='text'
                                     placeholder='Enter Location'
                                     className='input input-bordered w-full'
+                                    required
                                 />
                             </div>
                             <div className='mb-4'>
