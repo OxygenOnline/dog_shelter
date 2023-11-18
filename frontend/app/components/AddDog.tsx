@@ -49,7 +49,7 @@ const AddDog = () => {
     };
 
     return (
-        <div className="pb-6">
+        <div>
             <button
                 onClick={() => setModalOpen(true)}
                 className='btn rounded-lg text-gray-300 w-full bg-opacity-0 border-transparent shadow-none hover:border-orange-300 hover:bg-opacity-0'

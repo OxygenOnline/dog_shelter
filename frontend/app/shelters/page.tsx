@@ -29,11 +29,11 @@ const ShelterPage = () => {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center text-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center text-center justify-between pt-12 pb-6">
 
       <Navbar />
 
-      <h1 className="mb-3 text-6xl font-bold">Shelters</h1>
+      <h1 className="mb-3 pt-6 text-6xl font-bold">Shelters</h1>
 
       <div>
         <AddShelter />
