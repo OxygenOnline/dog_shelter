@@ -8,6 +8,14 @@ import Cookies from "js-cookie"
 const api = process.env.NEXT_PUBLIC_API_ROOT;
 const storedToken = Cookies.get('token');
 
+const unauthorized = async (status: number) => {
+    if (status === 403) {
+        alert("Please sign in")
+        window.location.href = '/login';
+        return;
+    }
+};
+
 export const getAllShelters = async () => {
     const res = await fetch(`${api}/shelters`);
     const data = await res.json();
@@ -27,6 +35,7 @@ export const addShelter = async (shelter: Shelter) => {
         },
         body: JSON.stringify(createdShelter)
     })
+    unauthorized(res.status);
     const newShelter = await res.json();
     return newShelter;
 };
@@ -40,17 +49,19 @@ export const editShelter = async (shelter: Shelter) => {
         },
         body: JSON.stringify(shelter)
     })
+    unauthorized(res.status);
     const updatedShelter = await res.json();
     return updatedShelter;
 };
 
 export const deleteShelter = async (id: number) => {
-    await fetch(`${api}/shelters/${id}`, {
+    const res = await fetch(`${api}/shelters/${id}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${storedToken}`
         }
     });
+    unauthorized(res.status);
 };
 
 export const getAllDogs = async () => {
@@ -72,6 +83,7 @@ export const addDog = async (dog: Dog) => {
         },
         body: JSON.stringify(createdDog)
     })
+    unauthorized(res.status);
     const newDog = await res.json();
     return newDog;
 };
@@ -85,17 +97,19 @@ export const editDog = async (dog: Dog) => {
         },
         body: JSON.stringify(dog)
     })
+    unauthorized(res.status);
     const updatedDog = await res.json();
     return updatedDog;
 };
 
 export const deleteDog = async (id: number) => {
-    await fetch(`${api}/dogs/${id}`, {
+    const res = await fetch(`${api}/dogs/${id}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${storedToken}`
         }
     });
+    unauthorized(res.status);
 };
 
 export const register = async (user: NewUser) => {
